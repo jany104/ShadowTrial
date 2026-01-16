@@ -7,7 +7,7 @@ const Navbar = () => {
 
     return (
         <nav style={{
-            position: 'fixed',
+            position: 'sticky',
             top: 0,
             width: '100%',
             padding: '0.5rem 0',

@@ -45,7 +45,7 @@ const Home = () => {
                         fontWeight: 700,
                         marginTop: '-0.5rem',
                         marginBottom: '2rem',
-                        lineHeight: '1.2',
+                        lineHeight: '1.1',
                         background: 'linear-gradient(135deg, #f472b6 0%, #db2777 100%)',
                         WebkitBackgroundClip: 'text',
                         backgroundClip: 'text',
