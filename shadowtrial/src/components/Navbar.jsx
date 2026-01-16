@@ -1,5 +1,6 @@
 import React from 'react'
 import { useCase } from '../context/CaseContext'
+import logo from '../assets/logo.png'
 
 const Navbar = () => {
     const { nextStep } = useCase()
@@ -9,7 +10,7 @@ const Navbar = () => {
             position: 'fixed',
             top: 0,
             width: '100%',
-            padding: '1.5rem 0',
+            padding: '0.5rem 0',
             zIndex: 100,
             background: 'rgba(255, 241, 242, 0.4)',
             backdropFilter: 'blur(24px)',
@@ -32,12 +33,17 @@ const Navbar = () => {
                         cursor: 'pointer'
                     }}
                 >
-                    <div className="brand-icon" style={{
-                        width: '32px',
-                        height: '32px',
-                        background: 'linear-gradient(135deg, #f472b6 0%, #db2777 100%)',
-                        borderRadius: '8px'
-                    }}></div>
+                    
+                    <img
+                        src={logo}
+                        alt="ShadowTrial Logo"
+                        style={{
+                            width: '80px',
+                            height: '80px',
+                            borderRadius: '8px',
+                            objectFit: 'contain'
+                            }}
+                        />
                     <span>ShadowTrial</span>
                 </div>
                 <div className="nav-links" style={{ display: 'flex', gap: '2rem' }}>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { useCase } from '../context/CaseContext'
+import logo from '../assets/logo.png'
 
 const Home = () => {
     const { nextStep } = useCase()
@@ -15,6 +16,7 @@ const Home = () => {
                     zIndex: -1,
                     pointerEvents: 'none'
                 }}></div>
+
                 <div className="container" style={{
                     height: '100vh',
                     display: 'flex',
@@ -24,10 +26,26 @@ const Home = () => {
                     textAlign: 'center',
                     position: 'relative'
                 }}>
+
+                    <img
+                        src={logo}
+                        alt="ShadowTrial Logo"
+                        style={{
+                            width: '500px',
+                            height: 'auto',
+                            marginTop: '3rem',
+                            marginBottom: '0.5rem',
+                            objectFit: 'contain'
+                        }}
+                        className="reveal-up"
+                    />
+
                     <h1 className="reveal-up" style={{
                         fontSize: '4.5rem',
                         fontWeight: 700,
+                        marginTop: '-0.5rem',
                         marginBottom: '2rem',
+                        lineHeight: '1.2',
                         background: 'linear-gradient(135deg, #f472b6 0%, #db2777 100%)',
                         WebkitBackgroundClip: 'text',
                         backgroundClip: 'text',
@@ -36,6 +54,7 @@ const Home = () => {
                     }}>
                         Replace Uncertainty with Clarity.
                     </h1>
+
                     <p className="reveal-up" style={{
                         fontSize: '1.25rem',
                         color: '#831843',
@@ -45,6 +64,7 @@ const Home = () => {
                     }}>
                         ShadowTrial helps you understand and mentally prepare for the reporting process through a private, non-judgmental simulation.
                     </p>
+
                     <div className="reveal-up" style={{
                         animationDelay: '1.5s',
                         display: 'flex',
