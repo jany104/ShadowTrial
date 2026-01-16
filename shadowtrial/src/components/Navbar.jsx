@@ -12,7 +12,7 @@ const Navbar = () => {
             width: '100%',
             padding: '0.5rem 0',
             zIndex: 100,
-            background: '#9f5484f0',
+            background: 'rgba(255, 241, 242, 0.4)',
             backdropFilter: 'blur(24px)',
             borderBottom: '1px solid rgba(74, 16, 46, 0.1)'
         }}>
