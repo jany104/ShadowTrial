@@ -1,0 +1,423 @@
+{
+    "crisisResources": {
+        "title": "Immediate Safety Resources",
+        "description": "If you are in immediate danger, please call 911 or your local emergency number.",
+        "hotlines": [
+            {
+                "name": "National Domestic Violence Hotline",
+                "number": "1-800-799-SAFE (7233)",
+                "url": "https://www.thehotline.org/"
+            },
+            {
+                "name": "RAINN (Sexual Assault)",
+                "number": "1-800-656-HOPE (4673)",
+                "url": "https://www.rainn.org/"
+            },
+            {
+                "name": "Suicide & Crisis Lifeline",
+                "number": "988",
+                "url": "https://988lifeline.org/"
+            }
+        ]
+    },
+    "procedures": [
+        {
+            "id": "civil_lawsuit",
+            "title": "File a Civil Lawsuit",
+            "description": "Seek financial compensation for personal injury, harassment, or discrimination.",
+            "prerequisites": [
+                "Identify the defendant",
+                "Documented evidence of damages"
+            ],
+            "validContexts": [
+                "Workplace",
+                "School",
+                "Public Space",
+                "Domestic",
+                "Online"
+            ],
+            "references": [
+                {
+                    "title": "Federal Civil Rights",
+                    "url": "https://www.justice.gov/crt"
+                },
+                {
+                    "title": "Legal Information Institute",
+                    "url": "https://www.law.cornell.edu/wex/civil_procedure"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "consult_attorney",
+                    "title": "Consult an Attorney",
+                    "description": "Civil law is complex. Find a lawyer specializing in your specific issue (e.g., employment, personal injury).",
+                    "requiredInfo": []
+                },
+                {
+                    "id": "preservation_letter",
+                    "title": "Send Preservation Letter",
+                    "description": "Formally notify the other party to preserve all relevant evidence (emails, footage, logs).",
+                    "requiredInfo": [
+                        "location",
+                        "time"
+                    ]
+                },
+                {
+                    "id": "file_complaint",
+                    "title": "File the Complaint",
+                    "description": "Submit the official legal document starting the lawsuit to the court clerk.",
+                    "requiredInfo": [
+                        "witnesses",
+                        "evidence_files"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "workplace_grievance",
+            "title": "Internal Workplace Complaint",
+            "description": "Formal HR process for harassment or discrimination at work.",
+            "prerequisites": [
+                "Employment at the company",
+                "Incident occurred effectively at work"
+            ],
+            "validContexts": [
+                "Workplace"
+            ],
+            "references": [
+                {
+                    "title": "EEOC Filing Guide",
+                    "url": "https://www.eeoc.gov/filing-charge-discrimination"
+                },
+                {
+                    "title": "Employee Rights (DOL)",
+                    "url": "https://www.dol.gov/general/topic/discrimination"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "review_policy",
+                    "title": "Review Company Policy",
+                    "description": "Check your Employee Handbook for the specific anti-harassment policy and reporting procedure.",
+                    "requiredInfo": []
+                },
+                {
+                    "id": "submit_writing",
+                    "title": "Submit Written Complaint",
+                    "description": "Email or file a form with HR detailing the timeline, location, and nature of incidents.",
+                    "requiredInfo": [
+                        "time",
+                        "location",
+                        "witnesses"
+                    ]
+                },
+                {
+                    "id": "eeoc_charge",
+                    "title": "File EEOC Charge",
+                    "description": "If the company fails to act, file a Charge of Discrimination with the EEOC (USA).",
+                    "requiredInfo": [
+                        "evidence_files"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "restraining_order",
+            "title": "Restraining / Protective Order",
+            "description": "Court order to stop an abuser from contacting or coming near you.",
+            "isCrisis": true,
+            "validContexts": [
+                "Domestic/Home",
+                "School",
+                "Workplace",
+                "Public Space",
+                "Online"
+            ],
+            "references": [
+                {
+                    "title": "WomensLaw.org Orders",
+                    "url": "https://www.womenslaw.org/laws/general/restraining-orders"
+                },
+                {
+                    "title": "Domestic Violence Legal Help",
+                    "url": "https://www.thehotline.org/resources/legal-help/"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "police_report",
+                    "title": "File Police Report",
+                    "description": "Document recent threats or violence. This creates an official record.",
+                    "requiredInfo": [
+                        "time",
+                        "location"
+                    ]
+                },
+                {
+                    "id": "file_petition",
+                    "title": "File Petition for Protection",
+                    "description": "Go to family court to file for a Temporary Restraining Order (TRO).",
+                    "requiredInfo": [
+                        "witnesses",
+                        "evidence_files"
+                    ]
+                },
+                {
+                    "id": "hearing",
+                    "title": "Permanent Order Hearing",
+                    "description": "Attend a hearing (usually within 14 days) to extend the order for 1-5 years.",
+                    "requiredInfo": []
+                }
+            ]
+        },
+        {
+            "id": "sexual_assault_report",
+            "title": "Reporting Sexual Assault",
+            "description": "Criminal reporting process for sexual violence.",
+            "isCrisis": true,
+            "validContexts": [
+                "Domestic/Home",
+                "School",
+                "Workplace",
+                "Public Space"
+            ],
+            "references": [
+                {
+                    "title": "RAINN Legal Resources",
+                    "url": "https://www.rainn.org/about-sexual-assault"
+                },
+                {
+                    "title": "Department of Justice Rights",
+                    "url": "https://www.justice.gov/ovw/sexual-assault"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "medical_exam",
+                    "title": "Medical Forensic Exam (Rape Kit)",
+                    "description": "Go to a hospital for an exam to collect DNA evidence. Do not shower or change clothes if possible.",
+                    "requiredInfo": [
+                        "time",
+                        "location"
+                    ]
+                },
+                {
+                    "id": "police_report",
+                    "title": "Report to Law Enforcement",
+                    "description": "You can report to police to initiate a criminal investigation.",
+                    "requiredInfo": [
+                        "witnesses"
+                    ]
+                },
+                {
+                    "id": "advocate",
+                    "title": "Connect with an Advocate",
+                    "description": "Sexual Assault advocates can accompany you to exams and police interviews.",
+                    "requiredInfo": []
+                }
+            ]
+        },
+        {
+            "id": "divorce_filing",
+            "title": "Divorce / Separation Filing",
+            "description": "Legal dissolution of marriage.",
+            "validContexts": [
+                "Domestic/Home"
+            ],
+            "references": [
+                {
+                    "title": "DivorceNet Guide",
+                    "url": "https://www.divorcenet.com/"
+                },
+                {
+                    "title": "Family Law Self-Help",
+                    "url": "https://www.courts.ca.gov/selfhelp-divorce.htm"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "grounds",
+                    "title": "Determine Grounds",
+                    "description": "Decide on No-Fault (irreconcilable differences) or Fault-based grounds.",
+                    "requiredInfo": []
+                },
+                {
+                    "id": "petition",
+                    "title": "File Petition for Dissolution",
+                    "description": "Submit paperwork to your local circuit court.",
+                    "requiredInfo": [
+                        "time"
+                    ]
+                },
+                {
+                    "id": "serve",
+                    "title": "Serve Your Spouse",
+                    "description": "Refers to officially delivering the divorce papers to your spouse.",
+                    "requiredInfo": [
+                        "location"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": "child_custody",
+            "title": "Child Custody Petition",
+            "description": "Legal determination of care and residence for children.",
+            "validContexts": [
+                "Domestic/Home"
+            ],
+            "references": [
+                {
+                    "title": "Child Welfare Gov",
+                    "url": "https://www.childwelfare.gov/"
+                },
+                {
+                    "title": "Custody X Change Guide",
+                    "url": "https://www.custodyxchange.com/topics/custody/"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "parenting_plan",
+                    "title": "Draft Parenting Plan",
+                    "description": "Propose a schedule for legal and physical custody.",
+                    "requiredInfo": [
+                        "time",
+                        "location"
+                    ]
+                },
+                {
+                    "id": "file_motion",
+                    "title": "File Custody Motion",
+                    "description": "Submit request to family court.",
+                    "requiredInfo": []
+                },
+                {
+                    "id": "mediation",
+                    "title": "Court Mediation",
+                    "description": "Many courts require mediation to attempt settlement before trial.",
+                    "requiredInfo": []
+                }
+            ]
+        },
+        {
+            "id": "cyberbullying_report",
+            "title": "Report Cyberbullying / Harassment",
+            "description": "Actions against online threats, stalking, or harassment.",
+            "validContexts": [
+                "Online",
+                "School",
+                "Workplace"
+            ],
+            "references": [
+                {
+                    "title": "StopBullying.gov",
+                    "url": "https://www.stopbullying.gov/cyberbullying/how-to-report"
+                },
+                {
+                    "title": "Cyber Civil Rights Initiative",
+                    "url": "https://www.cybercivilrights.org/"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "document_urls",
+                    "title": "Preserve Digital Evidence",
+                    "description": "Take screenshots, save URLs, and export chat logs immediately.",
+                    "requiredInfo": [
+                        "evidence_files",
+                        "time"
+                    ]
+                },
+                {
+                    "id": "platform_report",
+                    "title": "Report to Platform",
+                    "description": "Use the 'Report' feature on social media sites to flag content.",
+                    "requiredInfo": []
+                },
+                {
+                    "id": "send_cease",
+                    "title": "Cease and Desist",
+                    "description": "Send a formal letter demanding the behavior stop.",
+                    "requiredInfo": []
+                }
+            ]
+        },
+        {
+            "id": "dmca_takedown",
+            "title": "DMCA / Non-Consensual Image Takedown",
+            "description": "Remove unauthorized content (including 'revenge porn') from the web.",
+            "isCrisis": true,
+            "validContexts": [
+                "Online"
+            ],
+            "references": [
+                {
+                    "title": "Badass Army (Revenge Porn Help)",
+                    "url": "https://badassarmy.org/"
+                },
+                {
+                    "title": "DMCA Guide",
+                    "url": "https://www.dmca.com/FAQ/What-is-a-DMCA-Takedown"
+                }
+            ],
+            "steps": [
+                {
+                    "id": "identify_host",
+                    "title": "Identify the Host",
+                    "description": "Find out who hosts the website (e.g., GoDaddy, AWS) via WHOIS lookup.",
+                    "requiredInfo": []
+                },
+                {
+                    "id": "file_notice",
+                    "title": "File Takedown Notice",
+                    "description": "Submit a formal DMCA request to the host to remove the content.",
+                    "requiredInfo": [
+                        "evidence_files"
+                    ]
+                },
+                {
+                    "id": "ic3_report",
+                    "title": "Report to FBI (IC3)",
+                    "description": "File a complaint with the Internet Crime Complaint Center.",
+                    "references": [],
+                    "requiredInfo": []
+                }
+            ]
+        }
+    ],
+    "evidenceCategories": [
+        {
+            "id": "context",
+            "question": "What was the setting of the incident?",
+            "placeholder": "Select the best fit...",
+            "options": [
+                "Workplace",
+                "School",
+                "Domestic/Home",
+                "Public Space",
+                "Online"
+            ]
+        },
+        {
+            "id": "location",
+            "question": "Where specifically did it take place?",
+            "placeholder": "e.g., Office breakroom, Living room, Instagram DMs..."
+        },
+        {
+            "id": "time",
+            "question": "When did this happen? (Dates/Times)",
+            "placeholder": "e.g., Oct 12th around 2 PM, Recurring on Fridays..."
+        },
+        {
+            "id": "witnesses",
+            "question": "Were there any witnesses present?",
+            "placeholder": "e.g., Neighbors, Colleagues, Followers..."
+        },
+        {
+            "id": "evidence_files",
+            "question": "Do you have physical or digital evidence?",
+            "placeholder": "e.g., Bruise photos, Screenshots, Emails, Recordings..."
+        }
+    ]
+}

@@ -9,7 +9,14 @@ export const CaseProvider = ({ children }) => {
         actors: [],
         questions: [],
         evidenceScore: 0,
-        currentStep: 'home' // home, input, sim, result, legal
+        currentStep: 'home', // home, input, sim, result, legal, forum
+        structuredEvidence: {
+            context: '',
+            location: '',
+            time: '',
+            witnesses: '',
+            evidence_files: ''
+        }
     });
 
     const updateCase = (newData) => {
