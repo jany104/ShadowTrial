@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    /* --- Rose & Plum Palette (From User Image) --- */
+    --rose-50: #fff1f2;
+    --rose-100: #fce7f3;
+    --rose-200: #fbcfe8;
+    --rose-300: #f9a8d4;
+    --rose-400: #f472b6;
+    --rose-500: #ec4899;
+    --rose-600: #db2777;
+
+    --plum-700: #831843;
+    --plum-800: #581c3b;
+    --plum-900: #4a102e;
+
+    /* --- Functional Colors --- */
+    --bg-color: var(--rose-50);
+    --surface-color: rgba(255, 255, 255, 0.8);
+    --surface-border: rgba(74, 16, 46, 0.1);
+
+    --accent-color: var(--plum-800);
+    --accent-hover: var(--plum-700);
+
+    --text-primary: var(--plum-900);
+    --text-secondary: var(--plum-700);
+    --text-muted: var(--rose-400);
+
+    /* --- Sophisticated Gradients --- */
+    --gradient-primary: linear-gradient(135deg, var(--rose-400) 0%, var(--rose-600) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--rose-300) 0%, var(--plum-800) 100%);
+    --gradient-soft: linear-gradient(135deg, #fff 0%, var(--rose-100) 100%);
+    --gradient-glow: radial-gradient(circle, rgba(219, 39, 119, 0.1) 0%, rgba(255, 241, 242, 0) 70%);
+
+    /* --- Standard Props --- */
+    --glass-blur: blur(24px);
+    --transition-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+.brand {
+    font-family: 'Playfair Display', serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Glassmorphism Classes */
+.glass {
+    background: var(--surface-color);
+    backdrop-filter: var(--glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur);
+    border: 1px solid var(--surface-border);
+    border-radius: 1.5rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes revealUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.reveal-up {
+    opacity: 0;
+    animation: revealUp 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* Button & Container Styles */
+.btn-primary,
+.btn-secondary {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+    text-decoration: none;
+    font-family: 'Outfit', sans-serif;
+    text-align: center;
+}
+
+.btn-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: 0 4px 15px rgba(219, 39, 119, 0.2);
+}
+
+.btn-secondary {
+    background: var(--rose-200);
+    color: var(--plum-900);
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.05);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 10px 25px -5px rgba(219, 39, 119, 0.4);
+}
+
+.btn-secondary:hover {
+    background: var(--rose-300);
+}
+
+.page-container {
+    padding-top: 120px;
+    min-height: 100vh;
+}
