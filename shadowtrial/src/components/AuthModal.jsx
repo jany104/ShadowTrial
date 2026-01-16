@@ -27,14 +27,14 @@ const AuthModal = ({ isOpen, onClose }) => {
         setUsername(generateUsername());
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault();
         setError('');
 
         if (username.length < 3) return setError('Username too short.');
         if (password.length < 4) return setError('Password too short.');
 
-        const result = isLogin ? login(username, password) : signup(username, password);
+        const result = isLogin ? await login(username, password) : await signup(username, password);
 
         if (result.success) {
             onClose();

@@ -34,7 +34,9 @@ const EvidenceResult = () => {
                     <div className="readiness-card" style={{ padding: '2rem', background: 'rgba(255, 255, 255, 0.5)', borderRadius: '1rem', border: '1px solid rgba(74, 16, 46, 0.1)', margin: '2rem 0', textAlign: 'center' }}>
                         <div style={{ marginBottom: '1.5rem' }}>
                             <div style={{ fontSize: '0.9rem', color: '#831843', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Current Readiness</div>
-                            <div style={{ fontSize: '3rem', fontWeight: 700, color: '#db2777', margin: '0.5rem 0' }}>{score}%</div>
+                            <div style={{ fontSize: '2rem', fontWeight: 700, color: '#db2777', margin: '0.5rem 0' }}>
+                                {score > 80 ? 'High' : score > 40 ? 'Moderate' : 'Developing'}
+                            </div>
                         </div>
                         <div style={{ height: '12px', background: 'rgba(0, 0, 0, 0.05)', borderRadius: '6px', overflow: 'hidden', maxWidth: '400px', margin: '0 auto' }}>
                             <div style={{ width: `${score}%`, height: '100%', background: 'linear-gradient(135deg, #f472b6 0%, #db2777 100%)', transition: 'width 1.5s ease-out' }}></div>
