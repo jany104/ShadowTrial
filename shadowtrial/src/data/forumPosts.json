@@ -1,0 +1,29 @@
+[
+    {
+        "id": 1,
+        "user": "Anonymous User 82",
+        "title": "Workplace harassment at a tech firm",
+        "content": "I've been dealing with subtle comments about my background for months. I finally decided to use ShadowTrial, and it helped me realize I have enough evidence for a formal report. Writing it down privately first was the biggest relief.",
+        "category": "Workplace",
+        "timestamp": "2 hours ago",
+        "votes": 128
+    },
+    {
+        "id": 2,
+        "user": "Seeking Justice",
+        "title": "Unfair termination after reporting an incident",
+        "content": "Reporting was the hardest thing I've ever done. If you're currently in the middle of it, just know you aren't alone. Keep your documentation safe and external to company systems.",
+        "category": "Legal",
+        "timestamp": "5 hours ago",
+        "votes": 85
+    },
+    {
+        "id": 3,
+        "user": "SafeSpace Finder",
+        "title": "Need advice on choosing an advisor",
+        "content": "Looking for recommendations for advisors who specialize in environmental harassment. The Legal Flow here was helpful, but I want to talk to a real person next week.",
+        "category": "Support",
+        "timestamp": "1 day ago",
+        "votes": 42
+    }
+]
