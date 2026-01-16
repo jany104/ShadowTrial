@@ -1,72 +1,97 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useCase } from '../context/CaseContext'
+import knowledgeBase from '../data/legalKnowledgeBase.json'
 
 const QuestionSim = () => {
-    const { caseData, nextStep } = useCase()
-    const [loading, setLoading] = useState(true)
-    const [questions, setQuestions] = useState([])
+    const { caseData, updateCase, nextStep } = useCase()
+    const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
+    const [answers, setAnswers] = useState(caseData.structuredEvidence)
 
-    useEffect(() => {
-        const timer = setTimeout(() => {
-            const generated = [
-                "Exactly what time did this occur, and were there any witnesses?",
-                "Were there any prior incidents involving the same individuals?",
-                "Did you report this to anyone informally at the time?"
-            ];
+    const questions = knowledgeBase.evidenceCategories
 
-            if (caseData.description.toLowerCase().includes('email') || caseData.description.toLowerCase().includes('message')) {
-                generated.push("Can you provide the specific date and timestamp of the digital communication?");
-            }
-
-            setQuestions(generated);
-            setLoading(false);
-        }, 2000)
-        return () => clearTimeout(timer)
-    }, [caseData.description])
-
-    if (loading) {
-        return (
-            <div className="page-container" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
-                <div className="loader-ring" style={{ width: '50px', height: '50px', border: '5px solid #fce7f3', borderTopColor: '#db2777', borderRadius: '50%', animation: 'spin 1s linear infinite' }}></div>
-                <p style={{ marginTop: '1.5rem', color: '#831843', fontWeight: 500 }}>Analyzing narrative for potential inquiry points...</p>
-                <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
-            </div>
-        )
+    const handleAnswerChange = (e) => {
+        setAnswers({ ...answers, [questions[currentQuestionIndex].id]: e.target.value })
     }
+
+    const handleNext = () => {
+        if (currentQuestionIndex < questions.length - 1) {
+            setCurrentQuestionIndex(currentQuestionIndex + 1)
+        } else {
+            // Finished
+            updateCase({ structuredEvidence: answers })
+            nextStep('result')
+        }
+    }
+
+    const progress = ((currentQuestionIndex + 1) / questions.length) * 100
 
     return (
         <div className="page-container">
             <div className="container">
-                <div className="card glass fade-in" style={{ padding: '3rem' }}>
-                    <h2>Simulated Inquiry Questions</h2>
-                    <p style={{ marginBottom: '2rem', color: '#831843' }}>During a formal reporting process, you may be asked the following questions. Practice answering them privately below.</p>
-
-                    <div className="questions-list">
-                        {questions.map((q, i) => (
-                            <div key={i} className="question-item glass" style={{ padding: '1.5rem', marginBottom: '1.5rem', background: 'rgba(131, 24, 67, 0.03)', border: '1px solid rgba(131, 24, 67, 0.1)' }}>
-                                <div style={{ fontWeight: 600, marginBottom: '0.8rem', fontSize: '1.1rem' }}>{q}</div>
-                                <textarea
-                                    placeholder="Reflect on your answer here (optional, private)..."
-                                    style={{
-                                        width: '100%',
-                                        background: 'white',
-                                        minHeight: '80px',
-                                        fontSize: '0.95rem',
-                                        margin: '0',
-                                        padding: '1rem',
-                                        borderRadius: '0.5rem',
-                                        border: '1px solid rgba(0,0,0,0.1)',
-                                        fontFamily: 'inherit'
-                                    }}
-                                />
-                            </div>
-                        ))}
+                <div className="card glass fade-in" style={{ padding: '3rem', maxWidth: '700px', margin: '0 auto' }}>
+                    <div style={{ marginBottom: '2rem' }}>
+                        <h2 style={{ marginBottom: '0.5rem' }}>Structured Intake</h2>
+                        <p style={{ color: '#831843', opacity: 0.8 }}>We need a few specific details to assess your legal options.</p>
                     </div>
 
-                    <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-                        <button className="btn-primary" onClick={() => nextStep('result')}>
-                            Proceed to Readiness Assessment
-                        </button>
+                    <div style={{ height: '6px', background: 'rgba(0,0,0,0.05)', borderRadius: '3px', marginBottom: '2rem' }}>
+                        <div style={{ width: `${progress}%`, height: '100%', background: 'linear-gradient(90deg, #f472b6, #db2777)', borderRadius: '3px', transition: 'width 0.3s ease' }}></div>
+                    </div>
+
+                    <div key={currentQuestionIndex} style={{ animation: 'fadeIn 0.5s ease' }}>
+                        <h3 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', color: '#4a102e' }}>
+                            {questions[currentQuestionIndex].question}
+                        </h3>
+
+                        {questions[currentQuestionIndex].options ? (
+                            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '1rem', marginBottom: '2rem' }}>
+                                {questions[currentQuestionIndex].options.map(opt => (
+                                    <button
+                                        key={opt}
+                                        onClick={() => setAnswers({ ...answers, [questions[currentQuestionIndex].id]: opt })}
+                                        style={{
+                                            padding: '1rem',
+                                            borderRadius: '0.5rem',
+                                            border: answers[questions[currentQuestionIndex].id] === opt ? '2px solid #db2777' : '1px solid rgba(0,0,0,0.1)',
+                                            background: answers[questions[currentQuestionIndex].id] === opt ? 'rgba(219, 39, 119, 0.1)' : 'white',
+                                            color: answers[questions[currentQuestionIndex].id] === opt ? '#db2777' : '#4a102e',
+                                            fontWeight: answers[questions[currentQuestionIndex].id] === opt ? 600 : 400,
+                                            cursor: 'pointer',
+                                            transition: 'all 0.2s',
+                                            textAlign: 'center'
+                                        }}
+                                    >
+                                        {opt}
+                                    </button>
+                                ))}
+                            </div>
+                        ) : (
+                            <textarea
+                                className="text-area-glass"
+                                value={answers[questions[currentQuestionIndex].id] || ''}
+                                onChange={handleAnswerChange}
+                                placeholder={questions[currentQuestionIndex].placeholder}
+                                rows={5}
+                                autoFocus
+                                style={{
+                                    width: '100%',
+                                    background: 'white',
+                                    minHeight: '120px',
+                                    fontSize: '1.1rem',
+                                    padding: '1rem',
+                                    borderRadius: '0.5rem',
+                                    border: '1px solid rgba(0,0,0,0.1)',
+                                    fontFamily: 'inherit',
+                                    marginBottom: '2rem'
+                                }}
+                            />
+                        )}
+
+                        <div style={{ display: 'flex', justifyContent: 'flex-end' }}>
+                            <button className="btn-primary" onClick={handleNext} disabled={!answers[questions[currentQuestionIndex].id]}>
+                                {currentQuestionIndex === questions.length - 1 ? 'Finish Assessment' : 'Next Question'}
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
