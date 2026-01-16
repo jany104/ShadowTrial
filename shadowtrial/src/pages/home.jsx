@@ -43,9 +43,9 @@ const Home = () => {
                     <h1 className="reveal-up" style={{
                         fontSize: '4.5rem',
                         fontWeight: 700,
-                        marginTop: '-0.5rem',
+                        marginTop: '-5.5rem',
                         marginBottom: '2rem',
-                        lineHeight: '1.1',
+                        lineHeight: '1.3',
                         background: 'linear-gradient(135deg, #f472b6 0%, #db2777 100%)',
                         WebkitBackgroundClip: 'text',
                         backgroundClip: 'text',
@@ -80,7 +80,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section id="about" className="section" style={{ padding: '5rem 0', display: 'block' }}>
+            <section id="about" className="section" style={{ padding: '5rem 0', display: 'block', margin:'5rem' }}>
                 <div className="container glass" style={{ padding: '4rem', textAlign: 'center' }}>
                     <h2>What is ShadowTrial?</h2>
                     <p style={{ maxWidth: '800px', margin: '2rem auto', fontSize: '1.1rem' }}>
