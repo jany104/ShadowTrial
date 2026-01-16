@@ -7,7 +7,7 @@ const Home = () => {
 
     return (
         <div className="home-page">
-            <section className="hero">
+            <section className="hero" id="home">
                 <div className="hero-glow" style={{
                     position: 'absolute',
                     width: '800px',

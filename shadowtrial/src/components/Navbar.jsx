@@ -47,12 +47,7 @@ const Navbar = () => {
                     <span>ShadowTrial</span>
                 </div>
                 <div className="nav-links" style={{ display: 'flex', gap: '2rem' }}>
-                    <button
-                        onClick={() => nextStep('home')}
-                        style={{ background: 'none', border: 'none', color: '#4a102e', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit' }}
-                    >
-                        Home
-                    </button>
+                    <a href="#home" style={{ textDecoration: 'none', color: '#4a102e', fontWeight: 500 }}>Home</a>
                     <a href="#about" style={{ textDecoration: 'none', color: '#4a102e', fontWeight: 500 }}>About</a>
                 </div>
             </div>
