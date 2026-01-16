@@ -80,7 +80,7 @@ const Home = () => {
                 </div>
             </section>
 
-            <section id="about" className="section" style={{ padding: '5rem 0', display: 'block', margin:'5rem' }}>
+            <section id="about" className="section" style={{ padding: '8rem 0', display: 'block', margin:'5rem' }}>
                 <div className="container glass" style={{ padding: '4rem', textAlign: 'center' }}>
                     <h2>What is ShadowTrial?</h2>
                     <p style={{ maxWidth: '800px', margin: '2rem auto', fontSize: '1.1rem' }}>

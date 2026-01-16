@@ -47,8 +47,30 @@ const Navbar = () => {
                     <span>ShadowTrial</span>
                 </div>
                 <div className="nav-links" style={{ display: 'flex', gap: '2rem' }}>
-                    <a href="#home" style={{ textDecoration: 'none', color: '#4a102e', fontWeight: 500 }}>Home</a>
-                    <a href="#about" style={{ textDecoration: 'none', color: '#4a102e', fontWeight: 500 }}>About</a>
+                    <button
+                        onClick={() => nextStep('home')}
+                        style={{ background: 'none', border: 'none', color: '#4a102e', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', fontSize: '1rem' }}
+                    >
+                        Home
+                    </button>
+                    <button
+                        onClick={() => {
+                            nextStep('about');
+                            setTimeout(() => {
+                                const aboutSection = document.getElementById('about');
+                                if (aboutSection) aboutSection.scrollIntoView({ behavior: 'smooth' });
+                            }, 100);
+                        }}
+                        style={{ background: 'none', border: 'none', color: '#4a102e', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', fontSize: '1rem' }}
+                    >
+                        About
+                    </button>
+                    <button
+                        onClick={() => nextStep('forum')}
+                        style={{ background: 'none', border: 'none', color: '#4a102e', fontWeight: 500, cursor: 'pointer', fontFamily: 'inherit', fontSize: '1rem' }}
+                    >
+                        Community
+                    </button>
                 </div>
             </div>
         </nav>
