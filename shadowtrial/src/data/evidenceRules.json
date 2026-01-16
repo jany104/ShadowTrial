@@ -1,0 +1,36 @@
+{
+    "physical_evidence": {
+        "weight": 40,
+        "keywords": [
+            "email",
+            "chat",
+            "screenshot",
+            "recording",
+            "photo",
+            "document",
+            "message"
+        ]
+    },
+    "witness_presence": {
+        "weight": 30,
+        "keywords": [
+            "witness",
+            "colleague",
+            "coworker",
+            "friend",
+            "saw",
+            "heard"
+        ]
+    },
+    "temporal_clarity": {
+        "weight": 30,
+        "keywords": [
+            "date",
+            "time",
+            "where",
+            "location",
+            "office",
+            "meeting"
+        ]
+    }
+}
