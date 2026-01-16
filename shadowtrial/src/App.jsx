@@ -7,7 +7,6 @@ import IncidentInput from './pages/IncidentInput'
 import QuestionSim from './pages/QuestionSim'
 import EvidenceResult from './pages/EvidenceResult'
 import LegalFlow from './pages/LegalFlow'
-import ChatBot from "./components/ChatBot";
 
 
 const AppContent = () => {
