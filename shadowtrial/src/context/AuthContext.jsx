@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 const AuthContext = createContext();
 
@@ -15,14 +15,14 @@ export const AuthProvider = ({ children }) => {
         setLoading(false);
     }, []);
 
-    const generateUsername = () => {
+    const generateUsername = useCallback(() => {
         const adjectives = ['Silver', 'Brave', 'Quiet', 'Swift', 'Hidden', 'Steady', 'Amber', 'Night', 'Neon', 'Shadow'];
         const nouns = ['Wolf', 'Owl', 'Hawk', 'Fox', 'Lynx', 'Raven', 'Panda', 'Eagle', 'Ghost', 'Stander'];
         const adj = adjectives[Math.floor(Math.random() * adjectives.length)];
         const noun = nouns[Math.floor(Math.random() * nouns.length)];
         const num = Math.floor(Math.random() * 99) + 1;
         return `${adj}${noun}_${num}`;
-    };
+    }, []);
 
     const signup = async (username, password) => {
         try {

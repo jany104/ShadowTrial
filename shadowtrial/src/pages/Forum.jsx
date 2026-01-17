@@ -41,7 +41,14 @@ const Forum = () => {
     const categories = ['All', 'Workplace', 'Legal', 'Support'];
     const filteredPosts = filter === 'All' ? posts : posts.filter(post => post.category === filter);
 
-    const handleVote = (id, delta) => { };
+    const handleVote = (id, delta) => {
+        // Update local state for immediate UI feedback
+        const updatedPosts = posts.map(post =>
+            post.id === id ? { ...post, votes: post.votes + delta } : post
+        );
+        setPosts(updatedPosts);
+        // TODO: Implement backend vote persistence via POST /api/forum/posts/:id/vote
+    };
 
     const handleCreatePost = async (e) => {
         e.preventDefault();
