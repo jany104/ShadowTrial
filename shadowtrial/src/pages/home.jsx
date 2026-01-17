@@ -33,7 +33,8 @@ const Home = () => {
                         style={{
                             width: '500px',
                             height: 'auto',
-                            marginTop: '3rem',
+                            position:'relative',
+                            top:'1rem',
                             marginBottom: '0.5rem',
                             objectFit: 'contain'
                         }}
