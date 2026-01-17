@@ -23,7 +23,7 @@ const EvidenceResult = () => {
             timeline: extractedTimeline,
             actors: extractedActors
         })
-    }, [caseData.description])
+    }, [caseData.description, updateCase])
 
     return (
         <div className="page-container">
